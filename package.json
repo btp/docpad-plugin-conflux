@@ -33,7 +33,7 @@
     "url": "https://github.com/phoenixtechpubs/docpad-plugin-conflux.git"
   },
   "engines": {
-    "node": ">=0.8"
+    "node": ">=0.10"
   },
   "dependencies": {
     "feedr": "^2.10.3",
