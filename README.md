@@ -1,5 +1,4 @@
-# [Atlassian Confluence](https://www.atlassian.com/software/confluence/)
-  Importer Plugin for [DocPad](http://docpad.org)
+# [Atlassian Confluence](https://www.atlassian.com/software/confluence/) Importer Plugin for [DocPad](http://docpad.org)
 
 <!-- BADGES/ -->
 
