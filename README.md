@@ -136,27 +136,27 @@ collectionDefaults:
             )
   }
   adjustSource = (text) ->
-  # Images use cachr plugin
-  text = text.replace(/src="(\/download\/(attachments|thumbnails)\/.+?)"/g,
-    "src=\"<%=@cachr('#{site}$1')%>\"")
-  # Inter-page links
-  text = text.replace(/href="\/display\/(.+?)\/(.+?)">/g,
-    'href="../$1/$2.html">')
-  # Code blocks
-  text = text.replace(/<script type="syntaxhighlighter".*<!\[CDATA\[/g,
-    '<pre><code>')
-  text = text.replace(/]]><\/script>/g,
-    '</code></pre>')
-  # Note icons
-  text = text.replace(/<span class="aui-icon icon-hint">Icon/g,
-    '<span class="fa fa-info-circle">')
-  text = text.replace(/<span class="aui-icon icon-warning">Icon/g,
-    '<span class="fa fa-warning">')
-  text = text.replace(/<span class="aui-icon icon-sucess">Icon/g,
-    '<span class="fa fa-check-circle">')
-  text = text.replace(/<span class="aui-icon icon-problem">Icon/g,
-    '<span class="fa fa-exclamation-circle">')
-  return text
+    # Images use cachr plugin
+    text = text.replace(/src="(\/download\/(attachments|thumbnails)\/.+?)"/g,
+      "src=\"<%=@cachr('#{site}$1')%>\"")
+    # Inter-page links
+    text = text.replace(/href="\/display\/(.+?)\/(.+?)">/g,
+      'href="../$1/$2.html">')
+    # Code blocks
+    text = text.replace(/<script type="syntaxhighlighter".*<!\[CDATA\[/g,
+      '<pre><code>')
+    text = text.replace(/]]><\/script>/g,
+      '</code></pre>')
+    # Note icons
+    text = text.replace(/<span class="aui-icon icon-hint">Icon/g,
+      '<span class="fa fa-info-circle">')
+    text = text.replace(/<span class="aui-icon icon-warning">Icon/g,
+      '<span class="fa fa-warning">')
+    text = text.replace(/<span class="aui-icon icon-sucess">Icon/g,
+      '<span class="fa fa-check-circle">')
+    text = text.replace(/<span class="aui-icon icon-problem">Icon/g,
+      '<span class="fa fa-exclamation-circle">')
+    return text
   ```
 
 ### Create a file listing
