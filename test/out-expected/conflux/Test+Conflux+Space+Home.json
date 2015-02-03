@@ -1,0 +1,116 @@
+<div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+
+    <div class="aui-message success shadowed information-macro">
+                    <p class="title">Welcome to your new space!</p>
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            
+                    <p>Confluence spaces are great for sharing content and news with your team. This is your home page. Right now it shows recent space activity, but you can customize this page in anyway you like.</p>
+                
+                    </div>
+    </div>
+<h2 id="TestConfluxSpaceHome-Completethesetaskstogetstarted">Complete these tasks to get started</h2><ul class="inline-task-list" data-inline-tasks-content-id="4129352">
+<li data-inline-task-id="41">
+                        <strong>Edit this home page</strong> - Click <em>Edit</em> in the top right of this screen to customize your Space home page
+                    </li>
+<li data-inline-task-id="42">
+                        <strong>Create your first page</strong> - Click the <em>Create</em> button in the header to get started
+                    </li>
+<li data-inline-task-id="43">
+                        <strong>Brand your Space</strong> - Click <em>Configure Sidebar</em> in the left panel to update space details and logo
+                    </li>
+<li data-inline-task-id="44">
+                        <strong>Set permissions</strong> - Click <em>Space Tools</em> in the left sidebar to update permissions and give others access
+                    </li>
+</ul>
+
+
+<p> </p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+
+<h2 id="TestConfluxSpaceHome-Recentspaceactivity">Recent space activity</h2><p>
+                        
+
+<div class="recently-updated recently-updated-social" >
+            <div class="hidden parameters">
+    <input type="hidden" id="changesUrl" value="/plugins/recently-updated/changes.action?theme=social&amp;pageSize=5&amp;spaceKeys=TESTCONFLUX&amp;contentType=page, comment, blogpost">
+</div>
+    <div class="results-container">
+        <ul class="update-groupings">
+        <li class="grouping">
+                <div class="update-item-profile">
+            <a class="confluence-userlink url fn" data-username="computer" href=""><img class="userLogo logo" src="/s/en_GB/5637/e1ef10868e8fe2f234a1a0b171b01cde1d9717c4.1/_/images/icons/profilepics/default.png" alt="" title="computer"></a>
+        </div>
+        <ul class="update-items">
+            <div><a class="confluence-userlink url fn" data-username="computer" href="/display/~computer">computer</a></div>
+                        <li class="update-item">
+                <div class="update-item-icon">
+                    <span class="icon content-type-page"></span>
+                </div>
+                <div class="update-item-details">
+                    <span class="update-item-content">
+                                                    <a href="/display/TESTCONFLUX/Test+Two" title="Test Conflux Space">Test Two</a>
+                                            </span>
+                    <span class="update-item-date">created 4 minutes ago</span>
+                                                                            </div>
+            </li>
+                        <li class="update-item">
+                <div class="update-item-icon">
+                    <span class="icon content-type-page"></span>
+                </div>
+                <div class="update-item-details">
+                    <span class="update-item-content">
+                                                    <a href="/display/TESTCONFLUX/Test+One" title="Test Conflux Space">Test One</a>
+                                            </span>
+                    <span class="update-item-date">created 4 minutes ago</span>
+                                                                            </div>
+            </li>
+                        <li class="update-item">
+                <div class="update-item-icon">
+                    <span class="icon content-type-page"></span>
+                </div>
+                <div class="update-item-details">
+                    <span class="update-item-content">
+                                                    <a href="/display/TESTCONFLUX/Test+Conflux+Space+Home" title="Test Conflux Space">Test Conflux Space Home</a>
+                                            </span>
+                    <span class="update-item-date">created 7 minutes ago</span>
+                                                                            </div>
+            </li>
+                    </ul>
+    </li>
+    </ul>
+    </div>
+</div>
+
+                </p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+
+<h2 id="TestConfluxSpaceHome-Spacecontributors">Space contributors</h2><p>
+                        
+<div class="plugin-contributors">
+    <ul class="contributors-list">
+                                    <li>
+                                         <a href="http://confluence.magneteng.com:8090/display/~computer">computer</a>                                         (7 minutes ago)                </li>
+                                                    </ul>
+</div>
+
+                </p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+
+<p> </p></div>
+</div>
+</div>
+</div>

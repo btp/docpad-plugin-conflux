@@ -1,8 +1,10 @@
 {
-	"name": "docpad-plugin-tumblr-testsite",
-	"version": "0.1.0",
-	"private": true,
-	"dependencies": {
-		"docpad-plugin-eco": "2"
-	}
+  "name": "docpad-plugin-conflux-testsite",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "docpad": "~6.69.1",
+    "docpad-plugin-eco": "~2.1.0",
+    "request": "^2.51.0"
+  }
 }

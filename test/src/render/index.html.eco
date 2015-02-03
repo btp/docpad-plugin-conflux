@@ -1,0 +1,8 @@
+<h2>Confluence:</h2>
+<ul>
+  <% for file in @getFilesAtPath('conflux').toJSON(): %>
+  <li>
+    <a href="<%= file.url %>"><%= file.title %></a>
+  </li>
+  <% end %>
+</ul>

@@ -1,85 +1,175 @@
-# [Tumblr](https://www.tumblr.com/) Importer Plugin for [DocPad](http://docpad.org)
+# [Atlassian Confluence](https://www.atlassian.com/software/confluence/)
+  Importer Plugin for [DocPad](http://docpad.org)
 
 <!-- BADGES/ -->
 
-[![Build Status](http://img.shields.io/travis-ci/docpad/docpad-plugin-tumblr.png?branch=master)](http://travis-ci.org/docpad/docpad-plugin-tumblr "Check this project's build status on TravisCI")
-[![NPM version](http://badge.fury.io/js/docpad-plugin-tumblr.png)](https://npmjs.org/package/docpad-plugin-tumblr "View this project on NPM")
-[![Dependency Status](https://david-dm.org/docpad/docpad-plugin-tumblr.png?theme=shields.io)](https://david-dm.org/docpad/docpad-plugin-tumblr)
-[![Development Dependency Status](https://david-dm.org/docpad/docpad-plugin-tumblr/dev-status.png?theme=shields.io)](https://david-dm.org/docpad/docpad-plugin-tumblr#info=devDependencies)<br/>
-[![Gittip donate button](http://img.shields.io/gittip/docpad.png)](https://www.gittip.com/docpad/ "Donate weekly to this project using Gittip")
-[![Flattr donate button](http://img.shields.io/flattr/donate.png?color=yellow)](http://flattr.com/thing/344188/balupton-on-Flattr "Donate monthly to this project using Flattr")
-[![PayPayl donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6 "Donate once-off to this project using Paypal")
-[![BitCoin donate button](http://img.shields.io/bitcoin/donate.png?color=yellow)](https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a "Donate once-off to this project using BitCoin")
-[![Wishlist browse button](http://img.shields.io/wishlist/browse.png?color=yellow)](http://amzn.com/w/2F8TXKSNAFG4V "Buy an item on our wishlist for us")
+[![Build Status](http://img.shields.io/travis-ci/phoenixtechpubs/docpad-plugin-conflux.png?branch=master)](http://travis-ci.org/phoenixtechpubs/docpad-plugin-conflux "Check this project's build status on TravisCI")
+[![NPM version](http://badge.fury.io/js/docpad-plugin-conflux.png)](https://npmjs.org/package/docpad-plugin-conflux "View this project on NPM")
+[![Dependency Status](https://david-dm.org/phoenixtechpubs/docpad-plugin-conflux.svg)](https://david-dm.org/phoenixtechpubs/docpad-plugin-conflux)
+[![devDependency Status](https://david-dm.org/phoenixtechpubs/docpad-plugin-conflux/dev-status.svg)](https://david-dm.org/phoenixtechpubs/docpad-plugin-conflux#info=devDependencies)
+[![peerDependency Status](https://david-dm.org/phoenixtechpubs/docpad-plugin-conflux/peer-status.svg)](https://david-dm.org/phoenixtechpubs/docpad-plugin-conflux#info=peerDependencies)
 
 <!-- /BADGES -->
 
+Import Confluence spaces into DocPad collections.
 
-Import your Tumblr content directly into your DocPad database
-
+Forked from
+[docpad-plugin-tumblr](https://github.com/docpad/docpad-plugin-tumblr/),
+with modifications and improvements from
+[docpad-plugin-mongodb](https://github.com/nfriedly/docpad-plugin-mongodb/).
 
 ## Install
 
 ```
-docpad install tumblr
+docpad install conflux
 ```
 
+## Configure
 
-## Configuration
+### Specify your Confluence site, space, and login credentials
 
-### Specifying your Blog
-
-You need to specify `TUMBLR_BLOG` (e.g. `balupton.tumblr.com`) and your `TUMBLR_KEY` in either your [`.env` configuration file](http://docpad.org/docs/config#environment-configuration-file) like so:
+Specify your Confluence site with `CONFLUX_SITE` (e.g.,
+`http://confluence.example.org`), your space key with
+`CONFLUX_SPACE_KEY` and your login credentials with `CONFLUX_USER` and
+`CONFLUX_PW` in either your
+[`.env` configuration file](http://docpad.org/docs/config#environment-configuration-file)
+like so:
 
 ```
-TUMBLR_BLOG=balupton.tumblr.com
-TUMBLR_API_KEY=123
+CONFLUX_SITE=http://confluence.example.org
+CONFLUX_SPACE_KEY=SPACE1
+CONFLUX_USER=user1
+CONFLUX_PW=password1
 ```
 
-Or via your [docpad configuration file](http://docpad.org/docs/config) via:
+Or in your [docpad configuration file](http://docpad.org/docs/config):
 
 ``` coffee
 plugins:
-	tumblr:
-		blog: 'balupton.tumblr.com'
-		apiKey: '123'
+  conflux:
+    collections: [
+      site: 'http://confluence.example.org'
+      spaceKey: 'SPACE1'
+      user: 'user1'
+      pass: 'password1'
+    ]
 ```
 
-You can [create a new Tumblr API KEY here](http://www.tumblr.com/oauth/register) or [find your exiting ones here](http://www.tumblr.com/oauth/apps). Your API KEY is the same as your OAuth Consumer Key.
+### Customize the output
 
-
-### Customising the Output
-
-The default directory for where the imported documents will go inside is the `tumblr` directory. You can customise this using the `relativeDirPath` plugin configuration option.
-
-The default extension for imported documents is `.json`. You can customise this with the `extension` plugin configuration option.
-
-The default content for the imported documents is the serialised tumblr data as JSON data. You can can customise this with the `injectDocumentHelper` plugin configuration option which is a function that takes in a single [Document Model](https://github.com/bevry/docpad/blob/master/src/lib/models/document.coffee).
-
-If you would like to render a partial for the tumblr data type, add a layout, and change the extension, you can this with the following plugin configuration:
+Here's a more complex example:
 
 ``` coffee
-extension: '.html.eco'
-injectDocumentHelper: (document) ->
-	document.setMeta(
-		layout: 'default'
-		tags: (document.get('tags') or []).concat(['post'])
-		data: """
-			<%- @partial('post/'+@document.tumblr.type, @extend({}, @document, @document.tumblr)) %>
-			"""
-	)
+plugins:
+  conflux:
+    collectionDefaults:
+      site: 'http://confluence.example.org'
+      user: 'user1'
+      pass: 'password1'
+    collections: [
+      {
+        spaceKey: 'SPACE1'
+        collectionName: 'docs'
+        relativeDirPath: 'docs'
+        extension: '.html.eco'
+        injectDocumentHelper: (document) ->
+          document.setMeta(
+            layout: 'default'
+            tags: (document.get('tags') or [])
+          )
+      },
+      {
+        spaceKey: 'SPACE2'
+        collectionName: 'blog'
+        relativeDirPath: 'posts'
+        extension: '.html.eco'
+        injectDocumentHelper: (document) ->
+          document.setMeta(
+            layout: 'default'
+            tags: (document.get('tags') or [])
+          )
+      }
+    ]
 ```
 
-You can find a great example of this customisation within the [syte skeleton](https://github.com/docpad/syte.docpad) which combines the tumblr plugin with the [partials plugin](http://docpad.org/plugin/partials) as well as the [tags plugin](http://docpad.org/plugin/tags) and [paged plugin](http://docpad.org/plugin/paged).
+#### Configuration details
 
+Each configuration object in `collections` inherits default values
+from `collectionDefaults` and then from the built-in defaults:
 
-### Creating a File Listing
+``` coffee
+collectionDefaults:
+  site: process.env.CONFLUX_SITE
+  spaceKey: process.env.CONFLUX_SPACE_KEY
+  user: process.env.CONFLUX_USER
+  pw: process.env.CONFLUX_PW
+  collectionName: 'conflux'
+  relativeDirPath: null # defaults to collectionName
+  extension: '.json'
+  injectDocumentHelper: null
+  sort: null # http://documentcloud.github.io/backbone/#Collection-comparator
+  meta: {}
+```
 
-As imported documents are just like normal documents, you can also list them just as you would other documents. Here is an example of a `index.html.eco` file that would output the titles and links to all the imported tumblr documents:
+- `collectionName` - the name of the collection and also the default
+  directory for the imported documents.  The default is `conflux`. You
+  can customize this using the `relativeDirPath` plugin configuration
+  option.
+
+- `extension` - Use this option to customize the extension for
+  imported documents.  The default is `.json`.
+
+- `injectDocumentHelper` - Use this option to customize the content of
+  the imported documents.  Define a function which takes in a single
+  [Document Model](https://github.com/bevry/docpad/blob/master/src/lib/models/document.coffee).
+  You can access the Confluence JSON data from the `conflux` object.  For example:
+
+  ``` coffee
+  docpadConfig = {
+    plugins:
+      conflux:
+        collectionDefaults:
+          injectDocumentHelper: (document) ->
+            document.setMeta(
+              data: adjustSource document.get('conflux').body.view.value
+              layout: 'default'
+              tags: (document.get('tags') or [])
+            )
+  }
+  adjustSource = (text) ->
+  # Images use cachr plugin
+  text = text.replace(/src="(\/download\/(attachments|thumbnails)\/.+?)"/g,
+    "src=\"<%=@cachr('#{site}$1')%>\"")
+  # Inter-page links
+  text = text.replace(/href="\/display\/(.+?)\/(.+?)">/g,
+    'href="../$1/$2.html">')
+  # Code blocks
+  text = text.replace(/<script type="syntaxhighlighter".*<!\[CDATA\[/g,
+    '<pre><code>')
+  text = text.replace(/]]><\/script>/g,
+    '</code></pre>')
+  # Note icons
+  text = text.replace(/<span class="aui-icon icon-hint">Icon/g,
+    '<span class="fa fa-info-circle">')
+  text = text.replace(/<span class="aui-icon icon-warning">Icon/g,
+    '<span class="fa fa-warning">')
+  text = text.replace(/<span class="aui-icon icon-sucess">Icon/g,
+    '<span class="fa fa-check-circle">')
+  text = text.replace(/<span class="aui-icon icon-problem">Icon/g,
+    '<span class="fa fa-exclamation-circle">')
+  return text
+  ```
+
+### Create a file listing
+
+As imported documents are just like normal documents, you can also
+list them just as you would other documents.  Here is an example of an
+`index.html.eco` file that renders the titles and links to all the
+imported documents:
 
 ``` erb
-<h2>Tumblr:</h2>
-<ul><% for file in @getFilesAtPath('tumblr/').toJSON(): %>
+<h2>Confluence:</h2>
+<ul><% for file in @getFilesAtPath('conflux/').toJSON(): %>
 	<li>
 		<a href="<%= file.url %>"><%= file.title %></a>
 	</li>
@@ -89,58 +179,35 @@ As imported documents are just like normal documents, you can also list them jus
 <!-- HISTORY/ -->
 
 ## History
-[Discover the change history by heading on over to the `HISTORY.md` file.](https://github.com/docpad/docpad-plugin-tumblr/blob/master/HISTORY.md#files)
+
+See the change history in the
+[`HISTORY.md` file](https://github.com/phoenixtechpubs/docpad-plugin-conflux/blob/master/HISTORY.md#files).
 
 <!-- /HISTORY -->
-
 
 <!-- CONTRIBUTE/ -->
 
 ## Contribute
 
-[Discover how you can contribute by heading on over to the `CONTRIBUTING.md` file.](https://github.com/docpad/docpad-plugin-tumblr/blob/master/CONTRIBUTING.md#files)
+See how you can contribute in the
+[`CONTRIBUTING.md` file](https://github.com/phoenixtechpubs/docpad-plugin-conflux/blob/master/CONTRIBUTING.md#files).
 
 <!-- /CONTRIBUTE -->
 
-
 <!-- BACKERS/ -->
 
-## Backers
-
-### Maintainers
-
-These amazing people are maintaining this project:
-
-- Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)
-
-### Sponsors
-
-No sponsors yet! Will you be the first?
-
-[![Gittip donate button](http://img.shields.io/gittip/docpad.png)](https://www.gittip.com/docpad/ "Donate weekly to this project using Gittip")
-[![Flattr donate button](http://img.shields.io/flattr/donate.png?color=yellow)](http://flattr.com/thing/344188/balupton-on-Flattr "Donate monthly to this project using Flattr")
-[![PayPayl donate button](http://img.shields.io/paypal/donate.png?color=yellow)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QB8GQPZAH84N6 "Donate once-off to this project using Paypal")
-[![BitCoin donate button](http://img.shields.io/bitcoin/donate.png?color=yellow)](https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a "Donate once-off to this project using BitCoin")
-[![Wishlist browse button](http://img.shields.io/wishlist/browse.png?color=yellow)](http://amzn.com/w/2F8TXKSNAFG4V "Buy an item on our wishlist for us")
-
-### Contributors
-
-These amazing people have contributed code to this project:
-
-- [Benjamin Lupton](https://github.com/balupton) <b@lupton.cc> — [view contributions](https://github.com/docpad/docpad-plugin-tumblr/commits?author=balupton)
-
-[Become a contributor!](https://github.com/docpad/docpad-plugin-tumblr/blob/master/CONTRIBUTING.md#files)
-
 <!-- /BACKERS -->
-
 
 <!-- LICENSE/ -->
 
 ## License
 
-Licensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT license](http://creativecommons.org/licenses/MIT/)
+Licensed under the incredibly
+[permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence)
+[MIT license](http://creativecommons.org/licenses/MIT/).
 
-Copyright &copy; Bevry Pty Ltd <us@bevry.me> (http://bevry.me)
+&copy; 2015 Phoenix Technical Publications <info@phoenixtechpubs.com>
+(http://phoenixtechpubs.com)
 
 <!-- /LICENSE -->
 

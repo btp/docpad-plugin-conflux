@@ -15,4 +15,8 @@ out/
 # =====================================
 # CUSTOM MODIFICATIONS
 
-# None
+# Backup Files
+**/*~
+
+# Environment Variable Files
+**/.env
