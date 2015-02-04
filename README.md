@@ -1,4 +1,4 @@
-# [Atlassian Confluence](https://www.atlassian.com/software/confluence/) Importer Plugin for [DocPad](http://docpad.org)
+# Atlassian Confluence Importer Plugin for DocPad
 
 <!-- BADGES/ -->
 
@@ -10,9 +10,9 @@
 
 <!-- /BADGES -->
 
-Import Confluence spaces into DocPad collections.
-
-Forked from
+Import
+[Atlassian Confluence](https://www.atlassian.com/software/confluence/)
+spaces into [DocPad](http://docpad.org) collections.  Forked from
 [docpad-plugin-tumblr](https://github.com/docpad/docpad-plugin-tumblr/),
 with modifications and improvements from
 [docpad-plugin-mongodb](https://github.com/nfriedly/docpad-plugin-mongodb/).
