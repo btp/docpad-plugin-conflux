@@ -1,7 +1,7 @@
 {
   "name": "docpad-plugin-conflux",
   "version": "2.0.8",
-  "description": "Import Confluence content directly into your DocPad database.",
+  "description": "Import Atlassian Confluence spaces into DocPad collections.",
   "homepage": "",
   "license": {
     "type": "MIT"
