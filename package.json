@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-conflux",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Import Confluence content directly into your DocPad database.",
   "homepage": "",
   "license": {
