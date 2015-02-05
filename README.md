@@ -1,4 +1,4 @@
-# Atlassian Confluence Importer Plugin for DocPad
+# Atlassian Confluence&reg; Importer Plugin for DocPad
 
 <!-- BADGES/ -->
 
