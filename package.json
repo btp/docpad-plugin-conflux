@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-conflux",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Import Atlassian Confluence spaces into DocPad collections.",
   "homepage": "",
   "license": {
