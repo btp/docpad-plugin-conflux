@@ -13,6 +13,7 @@ module.exports = (BasePlugin) ->
         user: process.env.CONFLUX_USER
         pw: process.env.CONFLUX_PW
         relativeDirPath: null # defaults to collectionName
+        cleanurls: true
         extension: '.json'
         injectDocumentHelper: null
         collectionName: 'conflux'
@@ -137,6 +138,8 @@ module.exports = (BasePlugin) ->
       plugin = @
       docpad = @docpad
       getBasePath = @getBasePath
+      extension = collectionConfig.extension
+      clean = if collectionConfig.cleanurls? then '/index' else ''
 
       # Extract metadata
       id = page.id.toString();
@@ -158,7 +161,7 @@ module.exports = (BasePlugin) ->
         # Prepare paths
         filename = page.title.replace /\s/g, '+'
         basepath = getBasePath collectionConfig
-        pathname = "#{basepath}#{filename}#{collectionConfig.extension}"
+        pathname = "#{basepath}#{filename}#{clean}#{extension}"
         documentAttributes =
           data: page.body.view.value
           meta: _.defaults(
