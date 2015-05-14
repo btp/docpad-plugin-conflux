@@ -139,7 +139,7 @@ module.exports = (BasePlugin) ->
       docpad = @docpad
       getBasePath = @getBasePath
       extension = collectionConfig.extension
-      clean = if collectionConfig.cleanurls? then '/index' else ''
+      infix = if collectionConfig.cleanurls? then '/index' else ''
 
       # Extract metadata
       id = page.id.toString();
@@ -161,7 +161,7 @@ module.exports = (BasePlugin) ->
         # Prepare paths
         filename = page.title.replace /\s/g, '+'
         basepath = getBasePath collectionConfig
-        pathname = "#{basepath}#{filename}#{clean}#{extension}"
+        pathname = "#{basepath}#{filename}#{infix}#{extension}"
         documentAttributes =
           data: page.body.view.value
           meta: _.defaults(
